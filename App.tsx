@@ -44,7 +44,7 @@ function AppContent({ isDarkMode }: { isDarkMode: boolean }) {
         <Text style={styles.subtitle}>On Play Store And App Store</Text>
 
         <View style={styles.box}>
-          <Text style={styles.boxText}>Testing Phase X1-P1 Expressing the logic to get it achieved you enjoy the App ? ❤️ are you enjoying ?</Text>
+          <Text style={styles.boxText}>Base branch reset done to get it achieved you enjoy the App ? ❤️ are you enjoying ?</Text>
         </View>
       </View>
     </SafeAreaView>
