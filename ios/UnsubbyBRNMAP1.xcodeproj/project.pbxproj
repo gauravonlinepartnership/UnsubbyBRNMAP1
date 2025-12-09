@@ -10,6 +10,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		3C5653DDE9F5426FA4D4A3B0 /* libPods-UnsubbyBRNMAP1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEBE3FA459C4EFFE00F0B7C /* libPods-UnsubbyBRNMAP1.a */; };
 		66682FF33FE250D134115243 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
+		6E46C94B2EE8093E00F6852B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E46C94A2EE8093E00F6852B /* GoogleService-Info.plist */; };
 		6E701ADF2EE749E2003D6374 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E701ADE2EE749E2003D6374 /* libc++.tbd */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -22,6 +23,7 @@
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = UnsubbyBRNMAP1/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		1F21DA0E508AB65561B1A50F /* Pods-UnsubbyBRNMAP1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UnsubbyBRNMAP1.debug.xcconfig"; path = "Target Support Files/Pods-UnsubbyBRNMAP1/Pods-UnsubbyBRNMAP1.debug.xcconfig"; sourceTree = "<group>"; };
 		5AEBE3FA459C4EFFE00F0B7C /* libPods-UnsubbyBRNMAP1.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UnsubbyBRNMAP1.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E46C94A2EE8093E00F6852B /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6E701ADE2EE749E2003D6374 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		6EA2872E2EDF02AF0030024E /* UnsubbyBRNMAP1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = UnsubbyBRNMAP1.entitlements; path = UnsubbyBRNMAP1/UnsubbyBRNMAP1.entitlements; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = UnsubbyBRNMAP1/AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +52,7 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				761780EC2CA45674006654EE /* AppDelegate.swift */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
+				6E46C94A2EE8093E00F6852B /* GoogleService-Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 			);
@@ -166,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				6E46C94B2EE8093E00F6852B /* GoogleService-Info.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				66682FF33FE250D134115243 /* PrivacyInfo.xcprivacy in Resources */,
 			);
@@ -198,9 +202,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-UnsubbyBRNMAP1/Pods-UnsubbyBRNMAP1-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-UnsubbyBRNMAP1/Pods-UnsubbyBRNMAP1-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -237,9 +245,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-UnsubbyBRNMAP1/Pods-UnsubbyBRNMAP1-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-UnsubbyBRNMAP1/Pods-UnsubbyBRNMAP1-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -286,7 +298,7 @@
 				CODE_SIGN_ENTITLEMENTS = UnsubbyBRNMAP1/UnsubbyBRNMAP1.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = T83K737ETJ;
 				ENABLE_BITCODE = NO;
@@ -322,7 +334,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = T83K737ETJ;
 				INFOPLIST_FILE = UnsubbyBRNMAP1/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;

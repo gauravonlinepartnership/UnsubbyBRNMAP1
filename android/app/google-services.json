@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "250366130584",
+    "project_id": "unsubbydev",
+    "storage_bucket": "unsubbydev.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:250366130584:android:d0835de06c4f6d9b28d3ed",
+        "android_client_info": {
+          "package_name": "com.unsubby.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDH6mdwQlb3lt1UoXtZNora8G74znrscUc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
