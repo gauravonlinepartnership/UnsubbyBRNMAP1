@@ -5,7 +5,8 @@ require Pod::Executable.execute_command('node', ['-p',
     {paths: [process.argv[1]]},
   )', __dir__]).strip
 
-platform :ios, min_ios_version_supported
+# Set a stable minimum iOS deployment target.
+platform :ios, '15.1'
 prepare_react_native_project!
 
 linkage = ENV['USE_FRAMEWORKS']
@@ -19,16 +20,23 @@ target 'UnsubbyBRNMAP1' do
 
   use_react_native!(
     :path => config[:reactNativePath],
+    :hermes_enabled => true,
+    :fabric_enabled => false,
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+  # --- Consolidated and Corrected Post-Install Script ---
+
   post_install do |installer|
+    # 1. Run standard React Native post-installation steps
     react_native_post_install(
       installer,
       config[:reactNativePath],
       :mac_catalyst_enabled => false,
       # :ccache_enabled => true
     )
-  end
-end
+
+    
+  end # Closes post_install do |installer|
+end # Closes target 'UnsubbyBRNMAP1' do
