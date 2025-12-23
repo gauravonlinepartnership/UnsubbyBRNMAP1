@@ -5,15 +5,12 @@ require Pod::Executable.execute_command('node', ['-p',
     {paths: [process.argv[1]]},
   )', __dir__]).strip
 
-# Set a stable minimum iOS deployment target.
 platform :ios, '15.1'
 prepare_react_native_project!
 
-linkage = ENV['USE_FRAMEWORKS']
-if linkage != nil
-  Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
-  use_frameworks! :linkage => linkage.to_sym
-end
+# ✅ REQUIRED for Firebase Swift pods
+use_frameworks! :linkage => :static
+use_modular_headers!
 
 target 'UnsubbyBRNMAP1' do
   config = use_native_modules!
@@ -22,21 +19,30 @@ target 'UnsubbyBRNMAP1' do
     :path => config[:reactNativePath],
     :hermes_enabled => true,
     :fabric_enabled => false,
-    # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  # --- Consolidated and Corrected Post-Install Script ---
+  # 🔥 Firebase (no need to list all sub-deps manually)
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Crashlytics'
+  pod 'Firebase/Database'
+  pod 'Firebase/Firestore'
 
   post_install do |installer|
-    # 1. Run standard React Native post-installation steps
     react_native_post_install(
       installer,
       config[:reactNativePath],
-      :mac_catalyst_enabled => false,
-      # :ccache_enabled => true
+      :mac_catalyst_enabled => false
     )
 
-    
-  end # Closes post_install do |installer|
-end # Closes target 'UnsubbyBRNMAP1' do
+    # 🛡️ Fix React Native + modular headers conflict
+    installer.pods_project.targets.each do |target|
+      if target.name.start_with?('React-', 'RCT-', 'Yoga', 'hermes', 'fmt', 'boost')
+        target.build_configurations.each do |config|
+          config.build_settings['CLANG_ENABLE_MODULES'] = 'NO'
+        end
+      end
+    end
+  end
+end
