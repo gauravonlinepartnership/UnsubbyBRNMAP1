@@ -1,86 +1,47 @@
-import React from 'react';
-import {
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-  useColorScheme,
-} from 'react-native';
-import { SafeAreaProvider, SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import * as React from 'react';
+import { View, Text } from 'react-native';
+// import { createStaticNavigation } from '@react-navigation/native';
+import { NavigationContainer,Link } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Button } from '@react-navigation/elements';
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
-
+function HomeScreen() {
   return (
-    <SafeAreaProvider>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-      />
-      <AppContent isDarkMode={isDarkMode} />
-    </SafeAreaProvider>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Home Screen</Text>
+      <Link screen="Details"  params={{}} >
+      Go to Details
+      </Link>
+      <Button screen="Details"  params={{}}>Go to Details</Button>
+    </View>
   );
 }
 
-function AppContent({ isDarkMode }: { isDarkMode: boolean }) {
-  const insets = useSafeAreaInsets();
-
+function DetailsScreen() {
   return (
-    <SafeAreaView
-      style={[
-        styles.safeArea,
-        { backgroundColor: isDarkMode ? '#000' : '#fff' },
-      ]}
-    >
-      <View
-        style={[
-          styles.container,
-          {
-            paddingTop: insets.top,
-            paddingBottom: insets.bottom,
-          },
-        ]}
-      >
-        <Text style={styles.title}>🔥 Unsubby is Comming Soon!</Text>
-        <Text style={styles.subtitle}>On Play Store And App Store</Text>
-
-        <View style={styles.box}>
-          <Text style={styles.boxText}>Base branch reset done to get it achieved you enjoy the App ? ❤️ are you enjoying ?</Text>
-        </View>
-      </View>
-    </SafeAreaView>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Details Screen</Text>
+    </View>
   );
 }
 
-const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-  },
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 20,
-  },
-  title: {
-    fontSize: 22,
-    fontWeight: '700',
-    marginBottom: 10,
-  },
-  subtitle: {
-    fontSize: 16,
-    marginBottom: 20,
-    opacity: 0.7,
-  },
-  box: {
-    width: '90%',
-    backgroundColor: '#e0e0e0',
-    padding: 20,
-    borderRadius: 10,
-    alignItems: 'center',
-  },
-  boxText: {
-    fontSize: 16,
-  },
-});
+const Stack = createNativeStackNavigator();
 
-export default App;
+function RootStack() {
+  return (
+    <Stack.Navigator  initialRouteName="Home">
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="Details" component={DetailsScreen} />
+    </Stack.Navigator>
+  );
+}
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <RootStack />
+    </NavigationContainer>
+  );
+}
+
+
