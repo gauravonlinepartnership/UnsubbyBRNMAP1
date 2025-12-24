@@ -1,10 +1,15 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
+import { Provider } from 'react-redux';
+import { store } from './src/store/store';
 // import { createStaticNavigation } from '@react-navigation/native';
 import { NavigationContainer,Link } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Button } from '@react-navigation/elements';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
+
+
 
 
 
@@ -59,8 +64,10 @@ function RootStack() {
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <RootStack />
-    </NavigationContainer>
+    <Provider store={store}>
+        <NavigationContainer>
+          <RootStack />
+        </NavigationContainer>
+    </Provider>
   );
 }
