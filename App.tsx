@@ -1,3 +1,5 @@
+// git tag added version 1
+
 import * as React from 'react';
 import { View, Text } from 'react-native';
 import { Provider } from 'react-redux';
