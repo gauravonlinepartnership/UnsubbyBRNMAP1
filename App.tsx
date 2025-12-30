@@ -9,10 +9,6 @@ import { Button } from '@react-navigation/elements';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
-
-
-
-
 function HomeScreen() {
 
           const storeData = async (value: string) => {
