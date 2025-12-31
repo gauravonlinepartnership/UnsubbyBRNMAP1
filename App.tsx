@@ -1,4 +1,4 @@
-// git tag added version 1
+// git tag added version 1 now change X 2gi
 
 import * as React from 'react';
 import { View, Text } from 'react-native';
